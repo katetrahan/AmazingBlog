@@ -53,6 +53,14 @@ public class Sql2oAuthorDaoTest {
         Author notAddedAuthor =setupNewAuthor();
         authorDao.add(author);
         authorDao.add(nextAuthor);
-        assertEquals(3,authorDao.getAll().size());
+        assertEquals(2,authorDao.getAll().size());
+    }
+
+    @Test
+    public void findById_existingArtistsCanBeFoundById() throws Exception {
+        Author author =setupNewAuthor();
+        int originalAuthorId = author.getId();
+        authorDao.add(author);
+        assertNotEquals(originalAuthorId, author.getId());
     }
 }

@@ -39,4 +39,14 @@ public class Sql2oAuthorDao implements AuthorDao {
 
     }
 
+    @Override
+    public Author findById(int id) {
+        String sql = "SELECT * FROM authors WHERE id = :id";
+        try (Connection con =sql2o.open()) {
+            return con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(Author.class);
+        }
+    }
+
 }
