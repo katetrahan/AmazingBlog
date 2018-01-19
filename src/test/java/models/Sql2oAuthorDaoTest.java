@@ -63,4 +63,22 @@ public class Sql2oAuthorDaoTest {
         authorDao.add(author);
         assertNotEquals(originalAuthorId, author.getId());
     }
+
+    @Test
+    public void getAllPostsByAuthorsReturnsCorrectly() {
+        Author author =setupNewAuthor();
+        authorDao.add(author);
+        int authorId = author.getId();
+        Post newPost =new Post("post1", authorId);
+        Post secondPost = new Post ("post2", authorId);
+        postDao.add(newPost);
+        postDao.add(secondPost);
+
+
+        assertTrue(authorDao.getAllPostsByAuthor(authorId).size()==2);
+
+
+    }
+
+
 }

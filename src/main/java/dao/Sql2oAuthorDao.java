@@ -49,4 +49,19 @@ public class Sql2oAuthorDao implements AuthorDao {
         }
     }
 
+    //update
+    //delete
+
+
+
+
+    @Override
+    public List<Post> getAllPostsByAuthor(int authorId){
+        try(Connection con = sql2o.open()) {
+            return con.createQuery("SELECT * FROM posts WHERE authorId = :authorId")
+                    .addParameter("authorId", authorId)
+                    .executeAndFetch(Post.class);
+        }
+    }
+
 }
