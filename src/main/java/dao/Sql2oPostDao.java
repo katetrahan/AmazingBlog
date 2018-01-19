@@ -72,4 +72,16 @@ public class Sql2oPostDao implements PostDao {
             System.out.println(ex);
         }
     }
+
+    @Override
+    public void clearAllTracks() {
+        String sql = "DELETE from posts";
+        try (Connection con = sql2o.open()){
+            con.createQuery(sql)
+                    .executeUpdate();
+        } catch (Sql2oException ex) {
+            System.out.println(ex);
+        }
+    }
+
 }

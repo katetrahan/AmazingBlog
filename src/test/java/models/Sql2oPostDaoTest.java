@@ -81,6 +81,18 @@ public class Sql2oPostDaoTest {
         assertEquals(0,postDao.getAll().size());
     }
 
+    @Test
+    public void clearAllClearsAllPosts() throws Exception {
+        Post post = setupNewPost();
+        Post otherPost = new Post("Post", true);
+        postDao.add(post);
+        postDao.add(otherPost);
+        int daoSize = postDao.getAll().size();
+        postDao.clearAllTracks();
+        assertEquals(2,postDao.getAll().size());
+
+    }
+
 
 
 
