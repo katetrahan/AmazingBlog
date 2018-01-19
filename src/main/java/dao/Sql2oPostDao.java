@@ -17,7 +17,7 @@ public class Sql2oPostDao implements PostDao {
 
     @Override
     public void add(Post post){
-        String sql = "INSERT INTO posts (content, published) VALUES (:content, :published)";
+        String sql = "INSERT INTO posts (content, authorId) VALUES (:content, :authorId)";
         try (Connection con = sql2o.open()) {
             int id = (int) con.createQuery(sql)
                     .bind(post)
@@ -49,7 +49,7 @@ public class Sql2oPostDao implements PostDao {
     }
 
     @Override
-    public void update(int id, String newContent){
+    public void update(int id, String newContent, int authorId){
         String sql ="UPDATE posts SET content = :content WHERE id = :id";
         try (Connection con = sql2o.open()) {
             con.createQuery(sql)

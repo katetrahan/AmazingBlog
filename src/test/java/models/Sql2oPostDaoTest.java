@@ -32,7 +32,7 @@ public class Sql2oPostDaoTest {
     }
 
     public Post setupNewPost() {
-        return new Post("Hello", true);
+        return new Post("Hello", 1);
     }
 
 
@@ -66,9 +66,9 @@ public class Sql2oPostDaoTest {
     @Test
     public void update_updateChangesContent() throws Exception {
         String initialContent = "Hello";
-        Post post = new Post (initialContent, true);
+        Post post = new Post (initialContent, 1);
         postDao.add(post);
-        postDao.update(post.getId(),"New Content");
+        postDao.update(post.getId(),"New Content",1);
         Post updatedPost =postDao.findPostById(post.getId());
         assertNotEquals(initialContent, updatedPost.getContent());
     }
@@ -84,12 +84,12 @@ public class Sql2oPostDaoTest {
     @Test
     public void clearAllClearsAllPosts() throws Exception {
         Post post = setupNewPost();
-        Post otherPost = new Post("Post", true);
+        Post otherPost = new Post("Post", 1);
         postDao.add(post);
         postDao.add(otherPost);
         int daoSize = postDao.getAll().size();
         postDao.clearAllTracks();
-        assertEquals(2,postDao.getAll().size());
+        assertEquals(0,postDao.getAll().size());
 
     }
 

@@ -7,44 +7,27 @@ import java.util.Arrays;
 
 public class Post {
     private String content;
-    //    private static ArrayList<Post> instances = new ArrayList<>();
-    private boolean published;
+//    private boolean published;
     private LocalDateTime createdAt;
     private int id;
+    private int authorId;
 
 
 
-    public Post (String content, Boolean published){
+    public Post (String content, int authorId){
         this.content = content;
-        this.published = false;
+//        this.published = false;
         this.createdAt = LocalDateTime.now();
-//        instances.add(this);
-//        this.id = instances.size();
-//        id = instances.size(); //I’m never null of zero. How come?
+        this.authorId = authorId;
+
     }
 
     public String getContent() {
         return content;
     }
 
-//    public static ArrayList<Post> getAll(){
-//        return instances;
-//    }
-
-//    public static void clearAllPosts(){
-//        instances.clear();
-//    }
-
     public void setContent(String content) {
         this.content = content;
-    }
-
-    public boolean isPublished() {
-        return published;
-    }
-
-    public void setPublished(boolean published) {
-        this.published = published;
     }
 
     public LocalDateTime getCreatedAt() {
@@ -63,6 +46,14 @@ public class Post {
         this.id = id;
     }
 
+    public int getAuthorId() {
+        return authorId;
+    }
+
+    public void setAuthorId(int authorId) {
+        this.authorId = authorId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -70,8 +61,8 @@ public class Post {
 
         Post post = (Post) o;
 
-        if (published != post.published) return false;
         if (id != post.id) return false;
+        if (authorId != post.authorId) return false;
         if (content != null ? !content.equals(post.content) : post.content != null) return false;
         return createdAt != null ? createdAt.equals(post.createdAt) : post.createdAt == null;
     }
@@ -79,12 +70,9 @@ public class Post {
     @Override
     public int hashCode() {
         int result = content != null ? content.hashCode() : 0;
-        result = 31 * result + (published ? 1 : 0);
         result = 31 * result + (createdAt != null ? createdAt.hashCode() : 0);
         result = 31 * result + id;
+        result = 31 * result + authorId;
         return result;
     }
-
-
-
 }
