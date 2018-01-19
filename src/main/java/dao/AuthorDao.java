@@ -12,10 +12,15 @@ public interface AuthorDao {
 
     //read
     List<Author> getAll();
-   List<Post> getAllPostsByAuthor(int authorId);
+    List<Post> getAllPostsByAuthor(int authorId);
 
     Author findById(int id);
 
     //update
+    void update(int id, String name);
+
+
+
+
     //delete
 }

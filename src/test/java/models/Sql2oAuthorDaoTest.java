@@ -64,6 +64,23 @@ public class Sql2oAuthorDaoTest {
         assertNotEquals(originalAuthorId, author.getId());
     }
 
+
+    @Test
+    public void updateChangesAuthorName() throws Exception {
+        String initialName = "The Author";
+        Author author = new Author(initialName);
+        authorDao.add(author);
+
+        authorDao.update(author.getId(), "Oprah");
+        Author updatedAuthor = authorDao.findById(author.getId());
+        assertNotEquals(initialName, updatedAuthor.getName());
+    }
+
+
+
+
+
+
     @Test
     public void getAllPostsByAuthorsReturnsCorrectly() {
         Author author =setupNewAuthor();
