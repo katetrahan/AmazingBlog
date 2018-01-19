@@ -10,12 +10,28 @@
    <li role="presentation" class="active"><a href="#">Home</a></li>
    <li role="presentation"><a href="/posts">See All Posts</a></li>
    <li role="presentation"><a href="/posts/new">Add a New Post</a></li>
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+        Authors <span class="caret"></span>
+    </a>
+    <ul class = "dropdown-menu">
+        {{#if authors}}
+            {{#each authors}}
+                <li><a href = "/authors/"{{authorId}}">{{name}}</a></li>
+
+                {{/each}}
+                <li><a href="/authors/new">Add author</a></li>
+
+            {{else}}
+                <li><a href ="/authors/new"> Add an Author</a></li>
+            {{/if}}
+        </ul>
+    </li>
 </ul>
 <div class="container">
    <!--begin main template-->
    <div class="page-header">
        <img src="/images/chicken.jpg" width="100%">
-       <h1>Welcome to my Epicodus Blog. <small>A journey into code!</small></h1>
+       <h1>Welcome to Kate's Blog. <small> A journey into mania</small></h1>
    </div>
 
    <div class="col-md-12">
@@ -26,7 +42,15 @@
 </div>
 <!--end main template-->
 {{#block "footer"}}
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted"><a href="/tracks/deleteAll">DELETE ALL TASKS</a></p>
+            <p class="text-muted"><a href="/artists/deleteAll">DELETE ALL ARTISTS</a></p>
+        </div>
+    </footer>
    </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
    </html>
 {{/block}}
 

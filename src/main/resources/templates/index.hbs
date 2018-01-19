@@ -5,20 +5,20 @@
     {{#if posts}} <!--if posts exist, then -->
         {{#each posts }} <!--loop-->
             <p>Current post:</p>
-            <p>{{ content }} <a href="/posts/{{id}}">read more...</a></p> <!--show-->
+            <p>{{ content }} <a href="/authors/{{authorId}}">read more...</a></p> <!--show-->
         {{/each}}
     {{else}} <!--no posts!-->
     <p>No posts!</p>
     {{/if}}
 
-    <p>Add a new Post:</p>
+    <!--<p>Add a new Post:</p>-->
 
-    <form action="/posts/new" method="POST">
-        <label for="content">Post Description</label>
-        <input id="content" name="content" type="text">
+    <!--<form action="/posts/new" method="POST">-->
+        <!--<label for="content">Post Description</label>-->
+        <!--<input id="content" name="content" type="text">-->
 
-        <button type="submit" class="btn btn-default">Add post</button>
-    </form>
+        <!--<button type="submit" class="btn btn-default">Add post</button>-->
+    <!--</form>-->
 {{/partial}}
 
 {{> layout.hbs}}
