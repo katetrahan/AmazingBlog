@@ -51,7 +51,7 @@ public class Sql2oPostDaoTest {
         Post notAddedPost = setupNewPost();
         postDao.add(post);
         postDao.add(nextPost);
-        assertEquals(3, postDao.getAll().size());
+        assertEquals(2, postDao.getAll().size());
     }
 
 
