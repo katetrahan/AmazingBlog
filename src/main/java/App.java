@@ -94,12 +94,29 @@ public class App {
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
 
-
-
-
         // ======= authors ===== //
+
+
         // /author = show all authors
+        get("/authors", (request, response) -> {
+            Map<String,Object> model = new HashMap<>();
+            List<Author> allAuthors =authorDao.getAll();
+            model.put("authors", allAuthors);
+            return new ModelAndView(model, "authors.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
+
         // /authors/new
+        //get form
+        get("authors/new", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            List<Author> allAuthors = authorDao.getAll();
+            model.put("authors", allAuthors);
+            return new ModelAndView(model, "author-form.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
 
     }
 
