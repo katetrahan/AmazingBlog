@@ -60,7 +60,7 @@ public class Sql2oPostDaoTest {
         Post nextPost = setupNewPost();
         postDao.add(post);
         postDao.add(nextPost);
-        assertEquals("Post", postDao.findPostById(1).getContent());
+        assertEquals("Hello", postDao.findPostById(1).getContent());
     }
 
 
