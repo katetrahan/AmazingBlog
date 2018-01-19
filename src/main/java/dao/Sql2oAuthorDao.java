@@ -28,4 +28,15 @@ public class Sql2oAuthorDao implements AuthorDao {
             System.out.println(ex);
         }
     }
+
+    @Override
+    public List<Author> getAll() {
+        String sql = "SELECT * FROM artists";
+        try (Connection con = sql2o.open()) {
+            return con.createQuery("SELECT * FROM authors")
+                    .executeAndFetch(Author.class);
+        }
+
+    }
+
 }

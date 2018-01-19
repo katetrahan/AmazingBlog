@@ -45,4 +45,14 @@ public class Sql2oAuthorDaoTest {
         authorDao.add(author);
         assertNotEquals(originalAuthorId, author.getId());
     }
+
+    @Test
+    public void getAll_returnsAllAuthors() throws Exception {
+        Author author =setupNewAuthor();
+        Author nextAuthor =setupNewAuthor();
+        Author notAddedAuthor =setupNewAuthor();
+        authorDao.add(author);
+        authorDao.add(nextAuthor);
+        assertEquals(3,authorDao.getAll().size());
+    }
 }
