@@ -18,5 +18,6 @@ public interface PostDao {
     void update(int id, String content);
 
     //delete
+    void deleteById(int id);
 
 }

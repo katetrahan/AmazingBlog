@@ -73,6 +73,14 @@ public class Sql2oPostDaoTest {
         assertNotEquals(initialContent, updatedPost.getContent());
     }
 
+    @Test
+    public void delete_deleteByIdDeletesCorrectPost() throws Exception {
+        Post post = setupNewPost();
+        postDao.add(post);
+        postDao.deleteById(post.getId());
+        assertEquals(1,postDao.getAll().size());
+    }
+
 
 
 
