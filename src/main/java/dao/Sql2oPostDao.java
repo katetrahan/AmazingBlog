@@ -37,4 +37,14 @@ public class Sql2oPostDao implements PostDao {
                     .executeAndFetch(Post.class);
         }
     }
+
+    @Override
+    public Post findPostById(int id) {
+        String sql = "SELECT * FROM posts WHERE id = :id";
+        try (Connection con = sql2o.open()) {
+            return con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(Post.class);
+        }
+    }
 }

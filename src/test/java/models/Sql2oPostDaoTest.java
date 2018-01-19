@@ -54,6 +54,15 @@ public class Sql2oPostDaoTest {
         assertEquals(2, postDao.getAll().size());
     }
 
+    @Test
+    public void getPostsById_returnsTrackWithCorrectId() throws Exception {
+        Post post =setupNewPost();
+        Post nextPost = setupNewPost();
+        postDao.add(post);
+        postDao.add(nextPost);
+        assertEquals("Post", postDao.findPostById(1).getContent());
+    }
+
 
 
 

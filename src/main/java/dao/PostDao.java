@@ -12,6 +12,8 @@ public interface PostDao {
     //read
     List<Post> getAll();
 
+    Post findPostById(int id);
+
     //update
 
     //delete
