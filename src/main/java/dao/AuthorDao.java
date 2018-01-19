@@ -20,7 +20,6 @@ public interface AuthorDao {
     void update(int id, String name);
 
 
-
-
     //delete
+    void deleteById(int id);
 }

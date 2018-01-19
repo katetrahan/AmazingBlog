@@ -76,6 +76,16 @@ public class Sql2oAuthorDaoTest {
         assertNotEquals(initialName, updatedAuthor.getName());
     }
 
+    @Test
+    public void authorCanBeDeleted() throws Exception {
+        Author author =setupNewAuthor();
+        authorDao.add(author);
+        authorDao.deleteById(author.getId());
+        assertEquals(0,authorDao.getAll().size());
+    }
+
+
+
 
 
 
