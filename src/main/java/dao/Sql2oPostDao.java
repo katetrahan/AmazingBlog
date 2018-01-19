@@ -74,7 +74,7 @@ public class Sql2oPostDao implements PostDao {
     }
 
     @Override
-    public void clearAllTracks() {
+    public void clearAll() {
         String sql = "DELETE from posts";
         try (Connection con = sql2o.open()){
             con.createQuery(sql)

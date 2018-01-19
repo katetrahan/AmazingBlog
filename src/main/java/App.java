@@ -1,6 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import dao.Sql2oAuthorDao;
 import dao.Sql2oPostDao;
 import models.Author;
@@ -37,9 +38,43 @@ public class App {
 
 
         // /post/delete all
+        get ("/posts/delete", (request,response) -> {
+            Map<String, Object> model = new HashMap<>();
+            List<Post> allPosts = postDao.getAll();
+            model.put("post", allPosts);
+            postDao.clearAll();
+
+            return new ModelAndView(model, "delete.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
+
         // /author/ delete all
+        get("/authors/deleteAll", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            List<Author> allAuthors = authorDao.getAll();
+            model.put("authors", allAuthors);
+            authorDao.clearAllAuthors();
+            return new ModelAndView(model, "delete.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
+
+
+
         // ======= posts ========== //
+
         // /posts = all posts
+        get("/posts", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            List<Post> allPosts = postDao.getAll();
+            model.put("posts", allPosts);
+            return new ModelAndView(model, "posts.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
+
+
         // /posts/new
         // ======= authors ===== //
         // /author = show all authors

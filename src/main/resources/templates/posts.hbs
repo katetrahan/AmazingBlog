@@ -1,0 +1,17 @@
+{{#partial "content"}}
+
+    <h2>List of Posts</h2>
+    <h4>Click a post to view more.</h4>
+
+    {{#if posts}}
+        {{#each posts}}
+            <p><a href="/posts/{{id}}">{{ content }}</a></p>
+        {{/each}}
+    {{else}}
+        <p id="no-posts">No posts</p>
+    {{/if}}
+
+
+{{/partial}}
+
+{{> layout.hbs}}

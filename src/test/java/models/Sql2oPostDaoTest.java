@@ -88,7 +88,7 @@ public class Sql2oPostDaoTest {
         postDao.add(post);
         postDao.add(otherPost);
         int daoSize = postDao.getAll().size();
-        postDao.clearAllTracks();
+        postDao.clearAll();
         assertEquals(0,postDao.getAll().size());
 
     }

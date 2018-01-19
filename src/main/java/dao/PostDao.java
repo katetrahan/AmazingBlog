@@ -19,6 +19,6 @@ public interface PostDao {
 
     //delete
     void deleteById(int id);
-    void clearAllTracks();
+    void clearAll();
 
 }
