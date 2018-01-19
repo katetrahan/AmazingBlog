@@ -15,6 +15,7 @@ public interface PostDao {
     Post findPostById(int id);
 
     //update
+    void update(int id, String content);
 
     //delete
 

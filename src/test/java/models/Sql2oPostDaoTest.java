@@ -63,6 +63,16 @@ public class Sql2oPostDaoTest {
         assertEquals("Hello", postDao.findPostById(1).getContent());
     }
 
+    @Test
+    public void update_updateChangesContent() throws Exception {
+        String initialContent = "Hello";
+        Post post = new Post (initialContent, true);
+        postDao.add(post);
+        postDao.update(post.getId(),"New Content");
+        Post updatedPost =postDao.findPostById(post.getId());
+        assertEquals(initialContent, updatedPost.getContent());
+    }
+
 
 
 

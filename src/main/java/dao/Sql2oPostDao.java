@@ -47,4 +47,17 @@ public class Sql2oPostDao implements PostDao {
                     .executeAndFetchFirst(Post.class);
         }
     }
+
+    @Override
+    public void update(int id, String newContent){
+        String sql ="UPDATE posts SET content = :content WHERE id = :id";
+        try (Connection con = sql2o.open()) {
+            con.createQuery(sql)
+                    .addParameter("content", newContent)
+                    .addParameter("id", id)
+                    .executeUpdate();
+        } catch (Sql2oException ex) {
+            System.out.println(ex);
+        }
+    }
 }
