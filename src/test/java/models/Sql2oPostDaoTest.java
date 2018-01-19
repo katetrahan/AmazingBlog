@@ -44,6 +44,16 @@ public class Sql2oPostDaoTest {
         assertNotEquals(originalPostId, post.getId());
     }
 
+    @Test
+    public void getAll_returnsAllPostObjectsAddedtoDB() throws Exception {
+        Post post = setupNewPost();
+        Post nextPost = setupNewPost();
+        Post notAddedPost = setupNewPost();
+        postDao.add(post);
+        postDao.add(nextPost);
+        assertEquals(3, postDao.getAll().size());
+    }
+
 
 
 
