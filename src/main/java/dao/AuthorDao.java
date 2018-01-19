@@ -1,7 +1,14 @@
 package dao;
 
-/**
- * Created by Guest on 1/19/18.
- */
+import models.*;
+
+
 public interface AuthorDao {
+
+    //create
+    void add(Author author);
+
+    //read
+    //update
+    //delete
 }
