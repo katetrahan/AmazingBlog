@@ -78,7 +78,7 @@ public class Sql2oPostDaoTest {
         Post post = setupNewPost();
         postDao.add(post);
         postDao.deleteById(post.getId());
-        assertEquals(1,postDao.getAll().size());
+        assertEquals(0,postDao.getAll().size());
     }
 
 
