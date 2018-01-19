@@ -73,9 +73,20 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
 
-
-
         // /posts/new
+
+        //get form
+        get("/posts/new", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            List<Author> allAuthors = authorDao.getAll();
+            model.put("artists", allAuthors);
+
+            return new ModelAndView(model, "post-form.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
+
+
         // ======= authors ===== //
         // /author = show all authors
         // /authors/new

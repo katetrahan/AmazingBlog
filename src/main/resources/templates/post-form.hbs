@@ -1,22 +1,48 @@
 {{#partial "content"}}
 
-    {{#if editPost}}
-        <h1>Edit this Post!</h1>
-        <form action="/posts/{{editPost.id}}/update" method="post">
-            <label for="content">Edit this post's content</label>
-            <input id="content" name="content" type="text" value="{{editPost.content}}">
+    {{#if authors}}
+        <form action ="/posts/new" method ="post">
+            <label for="content">Content</label>
+            <input id ="content" name="content" type="text">
 
+            <label for="authorId">This post is by:</label>
+
+            <select id="authorId" name="authorId">
+                {{#each authors}}
+                    <option value="{{id}}">{{name}}</option>
+                {{/each}}
+            </select>
+            <p>Don't see the right category?<a href="/posts/new"> Add a new post first</a></p>
     {{else}}
-<h1>Add a new Post!</h1>
-            <form action="/posts/new" method="post">
-                <label for="content">Post Content</label>
-                <input id="content" name="content" type="text">
+        <h3> You'll need an Author before you can add a Post. <a href="/artists/new">Add one here.</a> </h3>
+       {{/if}}
+        <button type="submit" class="btn btn-default">Go!</button>
+
+        </form>
 
 
-                {{/if}}
-                <button type="submit" class="btn btn-default">Go</button>
 
-            </form>
+
+
+
+
+        <!---->
+        <!--<h1>Edit this Post!</h1>-->
+        <!--<form action="/posts/{{editPost.id}}/update" method="post">-->
+            <!--<label for="content">Edit this post's content</label>-->
+            <!--<input id="content" name="content" type="text" value="{{editPost.content}}">-->
+
+    <!--{{else}}-->
+<!--<h1>Add a new Post!</h1>-->
+            <!--<form action="/posts/new" method="post">-->
+                <!--<label for="content">Post Content</label>-->
+                <!--<input id="content" name="content" type="text">-->
+
+
+                <!--{}-->
+                <!--<button type="submit" class="btn btn-default">Go</button>-->
+
+            <!--</form>-->
 
 {{/partial}}
 
