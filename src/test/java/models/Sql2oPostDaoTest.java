@@ -70,7 +70,7 @@ public class Sql2oPostDaoTest {
         postDao.add(post);
         postDao.update(post.getId(),"New Content");
         Post updatedPost =postDao.findPostById(post.getId());
-        assertEquals(initialContent, updatedPost.getContent());
+        assertNotEquals(initialContent, updatedPost.getContent());
     }
 
 
