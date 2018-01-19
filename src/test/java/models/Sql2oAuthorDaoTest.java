@@ -84,10 +84,16 @@ public class Sql2oAuthorDaoTest {
         assertEquals(0,authorDao.getAll().size());
     }
 
-
-
-
-
+    @Test
+    public void clearAll_ClearAllDeletesAll() throws Exception {
+        Author author =setupNewAuthor();
+        Author otherAuthor =setupNewAuthor();
+        authorDao.add(author);
+        authorDao.add(otherAuthor);
+        int daoSize = authorDao.getAll().size();
+        authorDao.clearAllAuthors();
+        assertEquals(0,authorDao.getAll().size());
+    }
 
 
 

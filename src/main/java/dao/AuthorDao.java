@@ -12,7 +12,7 @@ public interface AuthorDao {
 
     //read
     List<Author> getAll();
-    List<Post> getAllPostsByAuthor(int authorId);
+    List<Post> getAllPostsByAuthor(int authorId); //revisit
 
     Author findById(int id);
 
@@ -22,4 +22,5 @@ public interface AuthorDao {
 
     //delete
     void deleteById(int id);
+    void clearAllAuthors();
 }

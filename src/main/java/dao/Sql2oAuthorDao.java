@@ -80,6 +80,17 @@ public class Sql2oAuthorDao implements AuthorDao {
 
     //delete
 
+    @Override
+    public void clearAllAuthors() {
+        String sql = "DELETE from authors";
+        try(Connection con = sql2o.open()) {
+            con.createQuery(sql)
+                    .executeUpdate();
+        } catch (Sql2oException ex) {
+            System.out.println(ex);
+        }
+    }
+
 
 
 
