@@ -84,6 +84,16 @@ public class App {
             return new ModelAndView(model, "post-form.hbs");
         }, new HandlebarsTemplateEngine());
 
+        //post form
+        post("posts/new", (request, response) -> {
+            Map<String, Object> model =new HashMap<>();
+            String content = request.queryParams("content");
+            int authorId =Integer.parseInt(request.queryParams("authorId"));
+            Post newPost = new Post(content, authorId);
+            postDao.add(newPost);
+            return new ModelAndView(model, "success.hbs");
+        }, new HandlebarsTemplateEngine());
+
 
 
 
