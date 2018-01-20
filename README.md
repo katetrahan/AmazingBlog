@@ -14,7 +14,7 @@ _This is an application that uses Java to allow a user to create a blog. The app
 | :-------------     | :------------- | :-------------
 | **Accept 1 blog post**| "What I Know For Sure" | "What I Know For Sure" |
 | **Accept 1 author of blog post and return 1 author of blog post**| "Oprah" | "Oprah" |
-| **Accept author of blog ** |"Oprah"|"Author:Oprah"|
+| **Accept author of blog** |"Oprah"|"Author:Oprah"|
 | **Accept 2 blog posts and return 2 blog posts**| "Journey to Beloved, Wisdom of Sundays" | "Journey to Beloved, Wisdom of Sundays" |
 | **Accepts 2 blog posts by the same author and returns two blog posts by one author** |"Journey to Beloved, Wisdom of Sundays"|" Journey to Beloved, Wisdom of Sundays: By Oprah"|
 | **Accepts 2 authors and returns 2 authors**| "Oprah, Gayle" | "Oprah, Gayle" |
