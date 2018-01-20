@@ -6,23 +6,23 @@
 
 ## Description
 
-_This is an application that uses Java to allow a user to create a blog. The application was started last week in class and I have added DAO and SQL onto this project. The application will also allow users to add information about the author along with the project. Created 1/12/2018._
+_This is an application that uses Java to allow a user to create a blog. The application was started last week in class and I have added DAO and SQL onto this project. The application will also allow users to add information about the author along with the project.This README highlights my love of Oprah. Updated 1/19/2018._
 
 
 ### Specs
 | Behavior | Input | Output |
 | :-------------     | :------------- | :-------------
-| **Accept 1 blog post**| "Blog Post" | "Blog Post" |
-| **Accept 1 author of blog post and return 1 author of blog post**| "Author" | "Author" |
+| **Accept 1 blog post**| "What I Know For Sure" | "What I Know For Sure" |
+| **Accept 1 author of blog post and return 1 author of blog post**| "Oprah" | "Oprah" |
 | **Accept author of blog ** |"Oprah"|"Author:Oprah"|
-| **Accept 2 blog posts and return 2 blog posts**| "Blog Post One, Blog Post Two" | "Blog Post One, Blog Post Two" |
-| **Accepts 2 blog posts by the same author and returns two blog posts by one author** |"Post One, Post Two"|"Post One, Post Two: By Oprah"|
-| **Accepts 2 authors and returns 2 authors**| "author one, author two" | "author one, author two" |
-| **Accepts 3 blog posts and return 3 blog posts**| "Post 1, Post 2, Post 3"|"Post 1, Post 2, Post 3"|
-| **Returns Correct Number of Entries** | "Post, Author"| "2"|
-| **Find ID of post and return correct ID**| "New Post"| "1"|
-| **Find correct author when more than one author exists**| "New Author, Oprah"| "2"|
-| **Edits blog post and return new blog post **| "New Post"|"New Post"|
+| **Accept 2 blog posts and return 2 blog posts**| "Journey to Beloved, Wisdom of Sundays" | "Journey to Beloved, Wisdom of Sundays" |
+| **Accepts 2 blog posts by the same author and returns two blog posts by one author** |"Journey to Beloved, Wisdom of Sundays"|" Journey to Beloved, Wisdom of Sundays: By Oprah"|
+| **Accepts 2 authors and returns 2 authors**| "Oprah, Gayle" | "Oprah, Gayle" |
+| **Accepts 3 blog posts and return 3 blog posts**| "Journey to Beloved, Wisdom of Sundays, What I Know For Sure"|"Journey to Beloved, Wisdom of Sundays, What I Know For Sure"|
+| **Returns Correct Number of Entries** | "What I Know For Sure, Oprah"| "2"|
+| **Find ID of post and return correct ID**| "Oprah: An Autobiography"| "1"|
+| **Find correct author when more than one author exists**| "Gayle, Oprah"| "2"|
+| **Edits blog post and return new blog post **| "My name is Oprah"|"My name is Oprah"|
 
 
 

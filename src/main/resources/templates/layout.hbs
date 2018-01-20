@@ -16,7 +16,7 @@
     <ul class = "dropdown-menu">
         {{#if authors}}
             {{#each authors}}
-                <li><a href = "/authors/"{{authorId}}">{{name}}</a></li>
+                <li><a href = "/authors/{{authorId}}">{{name}}</a></li>
 
                 {{/each}}
                 <li><a href="/authors/new">Add author</a></li>
@@ -44,8 +44,8 @@
 {{#block "footer"}}
     <footer class="footer">
         <div class="container">
-            <p class="text-muted"><a href="/tracks/deleteAll">DELETE ALL TASKS</a></p>
-            <p class="text-muted"><a href="/artists/deleteAll">DELETE ALL ARTISTS</a></p>
+            <p class="text-muted"><a href="/posts/delete">DELETE ALL POSTS</a></p>
+            <p class="text-muted"><a href="/authors/deleteAll">DELETE ALL AUTHORS</a></p>
         </div>
     </footer>
    </body>

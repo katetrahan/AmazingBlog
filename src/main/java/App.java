@@ -41,7 +41,7 @@ public class App {
         get ("/posts/delete", (request,response) -> {
             Map<String, Object> model = new HashMap<>();
             List<Post> allPosts = postDao.getAll();
-            model.put("post", allPosts);
+            model.put("posts", allPosts);
             postDao.clearAll();
 
             return new ModelAndView(model, "delete.hbs");
@@ -116,6 +116,35 @@ public class App {
             return new ModelAndView(model, "author-form.hbs");
         }, new HandlebarsTemplateEngine());
 
+        //post form
+        post("authors/new",(request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            String name = request.queryParams("name");
+            Author newAuthor = new Author (name);
+            authorDao.add(newAuthor);
+            List<Author> allAuthors =authorDao.getAll();
+            model.put("authors",allAuthors);
+            return new ModelAndView(model, "index.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        //get: show an individual post that is nested in an author
+        get("/authors/:authorId/posts/:id", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            int idOfPostToFind =Integer.parseInt(request.params("id"));
+            Post foundPost = postDao.findPostById(idOfPostToFind);
+            model.put("post", foundPost);
+            return new ModelAndView(model, "post-detail.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        //delete an individual post
+
+        get("/authors/:authorId/posts/:id/delete", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            int idOfPostToDelete = Integer.parseInt(request.params("id"));
+            Post deletePost = postDao.findPostById(idOfPostToDelete);
+            postDao.deleteById(idOfPostToDelete);
+            return new ModelAndView(model, "success.hbs");
+        }, new HandlebarsTemplateEngine());
 
 
     }

@@ -3,7 +3,7 @@
     <h1>Post list!</h1>
 
     {{#if posts}} <!--if posts exist, then -->
-        {{#each posts }} <!--loop-->
+        {{#each posts}} <!--loop-->
             <p>Current post:</p>
             <p>{{ content }} <a href="/authors/{{authorId}}">read more...</a></p> <!--show-->
         {{/each}}
