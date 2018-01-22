@@ -5,11 +5,11 @@
 <p>{{ post.content }}</p>
 
 
-<h5>Post status:</h5>
-<p>
+<h5>Author:</h5>
+<p>{{ author }}
 
     <a href="/posts/update{{post.id}}/update">Edit this post</a><br>
-    <a href="/posts/{{post.id}}/delete">DELETE this post (no undo)</a>
+    <a href="/posts/{{post.authorId}}/posts/{{posts.id}}/delete">DELETE this post (no undo)</a>
 </p>
 {{/partial}}
 

@@ -31,7 +31,7 @@ public class Sql2oAuthorDao implements AuthorDao {
 
     @Override
     public List<Author> getAll() {
-        String sql = "SELECT * FROM artists";
+        String sql = "SELECT * FROM authors";
         try (Connection con = sql2o.open()) {
             return con.createQuery("SELECT * FROM authors")
                     .executeAndFetch(Author.class);

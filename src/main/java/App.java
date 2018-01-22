@@ -19,7 +19,7 @@ public class App {
 
     public static void main(String[] args) {
         staticFileLocation("/public");
-        String connectionString = "jdbc:h2:~/todolist.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
+        String connectionString = "jdbc:h2:~/todolist.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'"; //todolist?
         Sql2o sql2o = new Sql2o(connectionString, "", "");
         Sql2oPostDao postDao = new Sql2oPostDao(sql2o);
         Sql2oAuthorDao authorDao = new Sql2oAuthorDao(sql2o);
@@ -79,13 +79,13 @@ public class App {
         get("/posts/new", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             List<Author> allAuthors = authorDao.getAll();
-            model.put("artists", allAuthors);
+            model.put("authors", allAuthors);
 
             return new ModelAndView(model, "post-form.hbs");
         }, new HandlebarsTemplateEngine());
 
         //post form
-        post("posts/new", (request, response) -> {
+        post("/posts/new", (request, response) -> {
             Map<String, Object> model =new HashMap<>();
             String content = request.queryParams("content");
             int authorId =Integer.parseInt(request.queryParams("authorId"));
@@ -109,7 +109,7 @@ public class App {
 
         // /authors/new
         //get form
-        get("authors/new", (request, response) -> {
+        get("/authors/new", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             List<Author> allAuthors = authorDao.getAll();
             model.put("authors", allAuthors);
@@ -117,7 +117,7 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
         //post form
-        post("authors/new",(request, response) -> {
+        post("/authors/new",(request, response) -> {
             Map<String, Object> model = new HashMap<>();
             String name = request.queryParams("name");
             Author newAuthor = new Author (name);

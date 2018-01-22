@@ -5,7 +5,7 @@
     {{#if posts}} <!--if posts exist, then -->
         {{#each posts}} <!--loop-->
             <p>Current post:</p>
-            <p>{{ content }} <a href="/authors/{{authorId}}">read more...</a></p> <!--show-->
+            <p>{{ content }} <a href="/authors/{{authorId}}/posts/{{id}}">read more...</a></p> <!--show-->
         {{/each}}
     {{else}} <!--no posts!-->
     <p>No posts!</p>
