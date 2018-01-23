@@ -2,9 +2,10 @@
 
     {{#if editPost}}
 
-    <form action ="/authors/{{authors.id}}/update" method ="post">
-        <label for="content">Edit Content</label>
-        <input id ="editcontent" name="content" type="editPost.content">
+    <form action ="/authors/{{authors.id}}/posts/{{editPost.id}}/update" method ="post">
+        <label for="editcontent">Edit Content</label>
+        <input id ="editcontent" name="editcontent" type="text">
+
 
 
 
@@ -13,6 +14,7 @@
     <h3> You'll need an Author before you can add a Post. <a href="/authors/new">Add one here.</a> </h3>
 
     <button type="submit" class="btn btn-default">Go!</button>
+    </form>
 
 
         {{else}}

@@ -149,6 +149,9 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             int idOfPostToFind = Integer.parseInt(request.params("postId"));
             Post editPost = postDao.findPostById(idOfPostToFind);
+            int idOfAuthor = Integer.parseInt(request.params("id"));
+            Author author = authorDao.findById(idOfAuthor);
+            model.put("authors", author);
             model.put("editPost", editPost);
             return new ModelAndView(model, "post-form.hbs");
         }, new HandlebarsTemplateEngine());
@@ -156,10 +159,12 @@ public class App {
         //post :process a form to update a task
         post("/authors/:id/posts/:postId/update", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
-            String newContent = request.queryParams("content");
-            int idOfPostToEdit = Integer.parseInt(request.queryParams("id"));
-            Post editPost = postDao.findPostById(idOfPostToEdit);
-            postDao.update(idOfPostToEdit, newContent, 1);
+            String newContent = request.queryParams("editcontent");
+            int postId = Integer.parseInt(request.params("postId"));
+            Post editPost = postDao.findPostById(postId);
+            int idOfAuthor = Integer.parseInt(request.params("id"));
+            Author author = authorDao.findById(idOfAuthor);
+            postDao.update(postId, newContent, idOfAuthor);
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -174,6 +179,8 @@ public class App {
             postDao.deleteById(idOfPostToDelete);
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
+
+
 
 
 

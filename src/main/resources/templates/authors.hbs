@@ -9,10 +9,14 @@
 
         {{#each posts}}
         <h3>Blog</h3>
-            {{ content }}
+        <a href="/authors/{{authors.id}}/posts/{{id}}/update">{{ content }} </a>
+
+        <a href="/authors/{{authors.id}}/posts/{{id}}/delete">Delete Post</a>
+
         {{/each}}
 
 <h3> Add a post <a href="/authors/{{authors.id}}/posts/new">Add one here.</a> </h3>
+
 
 
 
