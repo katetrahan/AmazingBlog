@@ -35,8 +35,6 @@ public class App {
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
-
-
         // post/delete all
         get ("/posts/delete", (request,response) -> {
             Map<String, Object> model = new HashMap<>();
@@ -47,8 +45,6 @@ public class App {
             return new ModelAndView(model, "delete.hbs");
         }, new HandlebarsTemplateEngine());
 
-
-
         // author/ delete all
         get("/authors/deleteAll", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
@@ -57,10 +53,6 @@ public class App {
             authorDao.clearAllAuthors();
             return new ModelAndView(model, "delete.hbs");
         }, new HandlebarsTemplateEngine());
-
-
-
-
 
         // ======= posts ========== //
 
@@ -72,9 +64,7 @@ public class App {
             return new ModelAndView(model, "posts.hbs");
         }, new HandlebarsTemplateEngine());
 
-
         // posts/new
-
         //get form
         get("/authors/:id/posts/new", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
@@ -96,11 +86,6 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
         // ======= authors ===== //
-
-
-
-
-
 
         // authors/new
         //get form
@@ -142,8 +127,6 @@ public class App {
             return new ModelAndView(model, "post-detail.hbs");
         }, new HandlebarsTemplateEngine());
 
-
-
         //update - show a form to update
         get("/authors/:id/posts/:postId/update", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
@@ -169,9 +152,7 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
 
-
         //delete an individual post
-
         get("/authors/:authorId/posts/:id/delete", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             int idOfPostToDelete = Integer.parseInt(request.params("id"));
@@ -179,14 +160,6 @@ public class App {
             postDao.deleteById(idOfPostToDelete);
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
-
-
-
-
-
-
-
-
 
 
     }

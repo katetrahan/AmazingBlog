@@ -2,60 +2,20 @@
 
     {{#if editPost}}
 
-    <form action ="/authors/{{authors.id}}/posts/{{editPost.id}}/update" method ="post">
-        <label for="editcontent">Edit Content</label>
-        <input id ="editcontent" name="editcontent" type="text">
+        <form action ="/authors/{{authors.id}}/posts/{{editPost.id}}/update" method ="post">
+            <label for="editcontent">Edit Content</label>
+            <input id ="editcontent" name="editcontent" type="text">
+            <button type="submit" class="btn btn-default">Go!</button>
+        </form>
 
-
-
-
-
-
-    <h3> You'll need an Author before you can add a Post. <a href="/authors/new">Add one here.</a> </h3>
-
-    <button type="submit" class="btn btn-default">Go!</button>
-    </form>
-
-
-        {{else}}
+    {{else}}
         <form action ="/authors/{{authors.id}}/posts/new" method ="post">
             <label for="content">Content</label>
             <input id ="content" name="content" type="text">
-
-
-
-        <h3> You'll need an Author before you can add a Post. <a href="/authors/new">Add one here.</a> </h3>
-
-        <button type="submit" class="btn btn-default">Go!</button>
-
-      {{/if}}
-
-
+            <button type="submit" class="btn btn-default">Go!</button>
         </form>
+    {{/if}}
 
-
-
-
-
-
-
-        <!---->
-        <!--<h1>Edit this Post!</h1>-->
-        <!--<form action="/posts/{{editPost.id}}/update" method="post">-->
-            <!--<label for="content">Edit this post's content</label>-->
-            <!--<input id="content" name="content" type="text" value="{{editPost.content}}">-->
-
-    <!--{{else}}-->
-<!--<h1>Add a new Post!</h1>-->
-            <!--<form action="/posts/new" method="post">-->
-                <!--<label for="content">Post Content</label>-->
-                <!--<input id="content" name="content" type="text">-->
-
-
-                <!--{}-->
-                <!--<button type="submit" class="btn btn-default">Go</button>-->
-
-            <!--</form>-->
 
 {{/partial}}
 
