@@ -11,6 +11,7 @@ public interface PostDao {
 
     //read
     List<Post> getAll();
+    List<Post> getAllPostsByAuthor(int authorId);
 
     Post findPostById(int id);
 

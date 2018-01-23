@@ -127,6 +127,8 @@ public class App {
             Map<String,Object> model = new HashMap<>();
             int idOfAuthor = Integer.parseInt(request.params("id"));
             Author author =authorDao.findById(idOfAuthor);
+            List <Post> postList = postDao.getAllPostsByAuthor(idOfAuthor);
+            model.put("posts", postList);
             model.put("authors", author);
             return new ModelAndView(model, "authors.hbs");
         }, new HandlebarsTemplateEngine());

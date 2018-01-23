@@ -6,6 +6,11 @@
 
             {{ authors.name }}
 
+
+        {{#each posts}}
+            {{ content }}
+        {{/each}}
+
 <h3> Add a post <a href="/authors/{{authors.id}}/posts/new">Add one here.</a> </h3>
 
 

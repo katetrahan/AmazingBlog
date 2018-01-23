@@ -49,6 +49,18 @@ public class Sql2oPostDao implements PostDao {
     }
 
     @Override
+    public List<Post> getAllPostsByAuthor(int authorId) {
+        String sql = "SELECT * FROM posts WHERE authorId = :authorId";
+        try (Connection con = sql2o.open()) {
+            return con.createQuery(sql)
+                    .addParameter("authorId", authorId)
+                    .executeAndFetch(Post.class);
+
+
+        }
+    }
+
+    @Override
     public void update(int id, String newContent, int authorId){
         String sql ="UPDATE posts SET content = :content WHERE id = :id";
         try (Connection con = sql2o.open()) {
