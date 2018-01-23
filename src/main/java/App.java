@@ -30,8 +30,8 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             List<Author> allAuthors = authorDao.getAll();
             model.put("authors", allAuthors);
-            List<Post> allPosts = postDao.getAll();
-            model.put("posts", allPosts);
+//            List<Post> allPosts = postDao.getAll();
+//            model.put("posts", allPosts);
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -76,7 +76,7 @@ public class App {
         // /posts/new
 
         //get form
-        get("/posts/new", (request, response) -> {
+        get("/author/:authorId/posts/new", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             List<Author> allAuthors = authorDao.getAll();
             model.put("authors", allAuthors);
@@ -98,7 +98,7 @@ public class App {
 
 
         // /author = show all authors
-        get("/authors", (request, response) -> {
+        get("/authors/:id", (request, response) -> {
             Map<String,Object> model = new HashMap<>();
             List<Author> allAuthors =authorDao.getAll();
             model.put("authors", allAuthors);

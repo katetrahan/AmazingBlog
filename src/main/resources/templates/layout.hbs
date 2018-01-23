@@ -9,7 +9,7 @@
 <ul class="nav nav-tabs">
    <li role="presentation"><a href="/">Home</a></li>
    <li role="presentation"><a href="/posts">See All Posts</a></li>
-   <li role="presentation"><a href="/posts/new">Add a New Post</a></li>
+   <li role="presentation"><a href="authors/{{authorId}}/posts/new">Add a New Post</a></li>
     <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
         Authors <span class="caret"></span>
     </a>
@@ -44,6 +44,8 @@
 {{#block "footer"}}
     <footer class="footer">
         <div class="container">
+            <p class="text-muted"><a href ="/authors/new">ADD AN AUTHOR</a></p>
+            <p class="text-muted"><a href = "/"></a></p>
             <p class="text-muted"><a href="/posts/delete">DELETE ALL POSTS</a></p>
             <p class="text-muted"><a href="/authors/deleteAll">DELETE ALL AUTHORS</a></p>
         </div>

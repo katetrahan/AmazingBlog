@@ -1,11 +1,15 @@
 {{#partial "content"}}
 
-    <h1>Post list!</h1>
+    <h1>Author list!</h1>
 
-    {{#if posts}} <!--if posts exist, then -->
-        {{#each posts}} <!--loop-->
+    {{#if authors}} <!--if posts exist, then -->
+        {{#each authors}} <!--loop-->
+            <p>Current author:</p>
+            <p>{{name}}</p>
             <p>Current post:</p>
-            <p>{{ content }} <a href="/authors/{{authorId}}/posts/{{id}}">read more...</a></p> <!--show-->
+            <!--<p>{{ content }} <a href="/authors/{{authorId}}/posts/{{id}}">read more...</a></p> &lt;!&ndash;show&ndash;&gt;-->
+            <p> Add a new post <a href ="/author/{{authorId}}/posts/new"></a></p>
+            <p><a href = "/authors/{{id}}">Author Details</a></p>
         {{/each}}
     {{else}} <!--no posts!-->
     <p>No posts!</p>

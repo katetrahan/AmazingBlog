@@ -1,7 +1,7 @@
 {{#partial "content"}}
 
     {{#if authors}}
-        <form action ="/posts/new" method ="post">
+        <form action ="author/{{authorId}}/posts/new" method ="post">
             <label for="content">Content</label>
             <input id ="content" name="content" type="text">
 
