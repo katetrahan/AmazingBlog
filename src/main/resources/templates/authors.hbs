@@ -1,26 +1,13 @@
 {{#partial "content"}}
 
     <h2>List of Authors</h2>
-
-
-
-            {{ authors.name }}
-
-
+    {{ authors.name }}
         {{#each posts}}
-        <h3>Blog</h3>
-        <a href="/authors/{{authors.id}}/posts/{{id}}/update">{{ content }} </a>
-
-        <a href="/authors/{{authors.id}}/posts/{{id}}/delete">Delete Post</a>
-
+         <h3>Blog</h3>
+         <a href="/authors/{{authors.id}}/posts/{{id}}/update">{{ content }} </a>
+         <a href="/authors/{{authors.id}}/posts/{{id}}/delete">Delete Post</a>
         {{/each}}
-
 <h3> Add a post <a href="/authors/{{authors.id}}/posts/new">Add one here.</a> </h3>
 
-
-
-
-
 {{/partial}}
-
 {{> layout.hbs}}

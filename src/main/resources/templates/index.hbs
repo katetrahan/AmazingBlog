@@ -8,21 +8,13 @@
             <p>{{name}}</p>
 
             <p>{{post.content}}</p>
-            <!--<p>{{ content }} <a href="/authors/{{authorId}}/posts/{{id}}">read more...</a></p> &lt;!&ndash;show&ndash;&gt;-->
+
             <p><a href = "/authors/{{id}}">Author Details</a></p>
         {{/each}}
-    {{else}} <!--no posts!-->
+    {{else}}
     <p>No posts!</p>
     {{/if}}
 
-    <!--<p>Add a new Post:</p>-->
-
-    <!--<form action="/posts/new" method="POST">-->
-        <!--<label for="content">Post Description</label>-->
-        <!--<input id="content" name="content" type="text">-->
-
-        <!--<button type="submit" class="btn btn-default">Add post</button>-->
-    <!--</form>-->
 {{/partial}}
 
 {{> layout.hbs}}
