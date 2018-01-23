@@ -12,7 +12,7 @@ public interface AuthorDao {
 
     //read
     List<Author> getAll();
-    List<Post> getAllPostsByAuthor(int authorId);
+
 
     Author findById(int id);
 

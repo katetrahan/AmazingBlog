@@ -1,4 +1,5 @@
 package models;
+import dao.Sql2oAuthorDao;
 import dao.Sql2oPostDao;
 import org.junit.After;
 import org.junit.Before;
@@ -15,6 +16,7 @@ import java.time.LocalDateTime;
 public class Sql2oPostDaoTest {
 
     private Sql2oPostDao postDao;
+    private Sql2oAuthorDao authorDao;
     private Connection conn;
 
     @Before
@@ -22,6 +24,7 @@ public class Sql2oPostDaoTest {
         String connectionString = "jdbc:h2:mem:testing;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
         Sql2o sql2o = new Sql2o(connectionString, "", "");
         postDao = new Sql2oPostDao(sql2o);
+        authorDao = new Sql2oAuthorDao(sql2o);
 
         conn = sql2o.open();
     }
@@ -33,6 +36,10 @@ public class Sql2oPostDaoTest {
 
     public Post setupNewPost() {
         return new Post("Hello", 1);
+    }
+
+    public Author setupNewAuthor() {
+        return new Author("The Author");
     }
 
 
@@ -79,6 +86,23 @@ public class Sql2oPostDaoTest {
         postDao.add(post);
         postDao.deleteById(post.getId());
         assertEquals(0,postDao.getAll().size());
+    }
+
+    @Test
+    public void getAllPostsByAuthorsReturnsCorrectly() {
+        Author author =setupNewAuthor();
+        authorDao.add(author);
+        int authorId = author.getId();
+        Post newPost =new Post("post1", authorId);
+        Post secondPost = new Post ("post2", authorId);
+        postDao.add(newPost);
+        postDao.add(secondPost);
+
+
+        assertTrue(postDao.getAllPostsByAuthor(authorId).size()==2);
+
+
+
     }
 
     @Test
