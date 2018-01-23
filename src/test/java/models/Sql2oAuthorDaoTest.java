@@ -109,8 +109,7 @@ public class Sql2oAuthorDaoTest {
 
 
        assertTrue(authorDao.getAllPostsByAuthor(authorId).size()==2);
-//        assertTrue(authorDao.getAllPostsByAuthor(authorId).contains(newPost));
-//        assertTrue(authorDao.getAllPostsByAuthor(authorId).contains(secondPost));
+
 
 
     }
