@@ -37,7 +37,7 @@ public class App {
 
 
 
-        // /post/delete all
+        // post/delete all
         get ("/posts/delete", (request,response) -> {
             Map<String, Object> model = new HashMap<>();
             List<Post> allPosts = postDao.getAll();
@@ -49,7 +49,7 @@ public class App {
 
 
 
-        // /author/ delete all
+        // author/ delete all
         get("/authors/deleteAll", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             List<Author> allAuthors = authorDao.getAll();
@@ -64,7 +64,7 @@ public class App {
 
         // ======= posts ========== //
 
-        // /posts = all posts
+        // posts = all posts
         get("/posts", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             List<Post> allPosts = postDao.getAll();
@@ -73,22 +73,23 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
 
-        // /posts/new
+        // posts/new
 
         //get form
-        get("/author/:authorId/posts/new", (request, response) -> {
+        get("/authors/:id/posts/new", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
-            List<Author> allAuthors = authorDao.getAll();
-            model.put("authors", allAuthors);
+            int idOfAuthor = Integer.parseInt(request.params("id"));
+            Author author =authorDao.findById(idOfAuthor);
+            model.put("authors", author);
 
             return new ModelAndView(model, "post-form.hbs");
         }, new HandlebarsTemplateEngine());
 
         //post form
-        post("/posts/new", (request, response) -> {
+        post("/authors/:id/posts/new", (request, response) -> {
             Map<String, Object> model =new HashMap<>();
             String content = request.queryParams("content");
-            int authorId =Integer.parseInt(request.queryParams("authorId"));
+            int authorId =Integer.parseInt(request.params("id"));
             Post newPost = new Post(content, authorId);
             postDao.add(newPost);
             return new ModelAndView(model, "success.hbs");
@@ -97,17 +98,11 @@ public class App {
         // ======= authors ===== //
 
 
-        // /author = show all authors
-        get("/authors/:id", (request, response) -> {
-            Map<String,Object> model = new HashMap<>();
-            List<Author> allAuthors =authorDao.getAll();
-            model.put("authors", allAuthors);
-            return new ModelAndView(model, "authors.hbs");
-        }, new HandlebarsTemplateEngine());
 
 
 
-        // /authors/new
+
+        // authors/new
         //get form
         get("/authors/new", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
@@ -125,6 +120,15 @@ public class App {
             List<Author> allAuthors =authorDao.getAll();
             model.put("authors",allAuthors);
             return new ModelAndView(model, "index.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        // author = show all authors
+        get("/authors/:id", (request, response) -> {
+            Map<String,Object> model = new HashMap<>();
+            int idOfAuthor = Integer.parseInt(request.params("id"));
+            Author author =authorDao.findById(idOfAuthor);
+            model.put("authors", author);
+            return new ModelAndView(model, "authors.hbs");
         }, new HandlebarsTemplateEngine());
 
         //get: show an individual post that is nested in an author
