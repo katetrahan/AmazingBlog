@@ -1,7 +1,7 @@
 {{#partial "content"}}
 
     <h2>List of Authors</h2>
-    {{ authors.name }}
+    {{ authors.name }}<a href = "/authors/update/{{authors.id}}">Update Author Name</a>
         {{#each posts}}
          <h3>Blog</h3>
          <a href="/authors/{{authors.id}}/posts/{{id}}/update">{{ content }} </a>

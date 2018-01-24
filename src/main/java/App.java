@@ -35,6 +35,7 @@ public class App {
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
+
         // post/delete all
         get ("/posts/delete", (request,response) -> {
             Map<String, Object> model = new HashMap<>();
@@ -127,6 +128,7 @@ public class App {
             return new ModelAndView(model, "post-detail.hbs");
         }, new HandlebarsTemplateEngine());
 
+
         //update - show a form to update
         get("/authors/:id/posts/:postId/update", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
@@ -148,6 +150,24 @@ public class App {
             int idOfAuthor = Integer.parseInt(request.params("id"));
             Author author = authorDao.findById(idOfAuthor);
             postDao.update(postId, newContent, idOfAuthor);
+            return new ModelAndView(model, "success.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        //THIS IS NEW!!!!! update - update name of author
+        get("/authors/update/:authorId", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            int idOfAuthorToFind = Integer.parseInt(request.params("authorId"));
+            Author editAuthor = authorDao.findById(idOfAuthorToFind);
+            model.put("editAuthor", editAuthor);
+            return new ModelAndView(model, "author-form.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        //THIS IS NEW!!! update - post a from to update an author
+        post("/authors/update/:authorId", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            int authorId = Integer.parseInt(request.params("authorId"));
+            String newName = request.queryParams("editAuthor");
+            authorDao.update(authorId,newName);
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
 
